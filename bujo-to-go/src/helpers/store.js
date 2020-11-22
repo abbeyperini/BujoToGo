@@ -10,6 +10,8 @@ export const store = createStore(
     applyMiddleware(
         thunkMiddleware,
         loggerMiddleware
-    ),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 )
+
+// to apply debugger - window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// will have to work it into 2 args above - https://github.com/jhen0409/react-native-debugger/issues/280

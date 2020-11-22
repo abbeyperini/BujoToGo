@@ -1,13 +1,13 @@
 import { userConstants } from '../constants';
-import { userService } from '.../services';
+import { userService } from '../services/user.service';
 import { alertActions } from './';
 import { history } from '../helpers';
 
+// removed getAll
 export const userActions = {
     login,
     logout,
     register,
-    getAll,
     delete: _delete
 }
 
@@ -62,21 +62,21 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
-function getAll() {
-    return dispatch => {
-        dispatch(request());
+// function getAll() {
+//     return dispatch => {
+//         dispatch(request());
 
-        userService.getAll()
-        .then(
-            users => dispatch(success(users)),
-            error => dispatch(failure(error))
-        );
-    };
+//         userService.getAll()
+//         .then(
+//             users => dispatch(success(users)),
+//             error => dispatch(failure(error))
+//         );
+//     };
 
-    function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
-}
+//     function request() { return { type: userConstants.GETALL_REQUEST } }
+//     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
+//     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+// }
 
 // prefixed function with underscore because delete is a reserved word in JS
 function _delete(id) {
