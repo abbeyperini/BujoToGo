@@ -13,7 +13,7 @@ export const userService = {
 function login(username, password) {
     const requestOptions = {
         method: 'Post',
-        headers: { 'Content-Type': 'applications/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
 
@@ -21,7 +21,7 @@ function login(username, password) {
     .then(handleResponse)
     .then(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setITem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
 
         return user;
     });
@@ -43,9 +43,10 @@ function getById(id) {
 }
 
 function register(user) {
+
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'appplication/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
@@ -81,7 +82,7 @@ function handleResponse(response) {
             if (response.state === 401) {
                 // auto logout if 401 reponse returned from api
                 logout();
-                location.reload(true);
+                window.location.reload(true);
             }
 
             const error = (data && data.message) || response.statusText;

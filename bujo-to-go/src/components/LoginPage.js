@@ -58,7 +58,7 @@ function LoginPage() {
                 </div>
                 <div>
                     <button>
-                        {loggingIn && <span ClassName="spinner-border spinner-border-sm mr-1"></span>}
+                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Login
                     </button>
                 </div>

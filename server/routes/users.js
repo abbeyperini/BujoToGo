@@ -1,12 +1,15 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
 const models = require('../models');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
 
 module.exports = router;
 router.use(cors());
 router.use(express.json());
+router.use(bodyParser.urlencoded({extended: false}));
 
 // move to controllers
 
@@ -15,7 +18,7 @@ router.post('/authenticate', (req, res) => {
     let password = req.body.password;
 
     if (username && password) {
-        models.Users.findOne({
+        models.user.findOne({
             where: {
                 username: username
             }
@@ -43,7 +46,7 @@ router.post('/register', (req, res) => {
     let password = req.body.password;
 
     if (username && password) {
-        models.Users.findOne({
+        models.user.findOne({
             where: {
                 username: username
             }
@@ -54,7 +57,7 @@ router.post('/register', (req, res) => {
             } else {
                 bcrypt.genSalt(10, function(err, salt) {
                     bcrypt.hash(password, salt, function(err, hash) {
-                        let user = models.Users.build({
+                        let user = models.user.build({
                             first_name: firstName,
                             last_name: lastName,
                             username: username,
@@ -71,5 +74,7 @@ router.post('/register', (req, res) => {
                 })
             }
         })
+    } else {
+        res.json({success: false})
     }
 })
