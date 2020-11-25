@@ -71,7 +71,7 @@ function RegisterPage() {
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         Register
                     </button>
-                    <Link to="/login" >Cancel</Link>
+                    <p>Already have a username?</p><Link to="/login">Login</Link>
                 </div>
             </form>
         </div>

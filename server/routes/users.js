@@ -23,7 +23,7 @@ router.post('/authenticate', (req, res) => {
                 username: username
             }
         }).then(user => {
-
+            console.log(user)
             if (user === null) {
                 res.json({login: false})
             } else {
