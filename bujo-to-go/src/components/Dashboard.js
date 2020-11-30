@@ -1,8 +1,12 @@
 import React from 'react';
+import { userService } from '../services/user.service';
 
 function Dashboard() {
     return(
-        <h1>Dashboard</h1>
+        <div>
+            <h1>Dashboard</h1>
+        <button onClick={userService.logout}>Log out</button>
+        </div>
     )
 }
 

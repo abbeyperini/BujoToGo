@@ -18,9 +18,19 @@ function login(username, password) {
 
         userService.login(username, password)
         .then(
-            user => {
-                dispatch(success(user));
-                history.push('/');
+            result => {
+                if (result.login === true) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('user', JSON.stringify(result.user));
+
+                    dispatch(success(result.user));
+                    history.push('/');
+                } else if (result.login === false) {
+                    let error = "Username does not exist.";
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error));
+                }
+        
             },
             error => {
                 dispatch(failure(error));
