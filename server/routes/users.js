@@ -32,7 +32,7 @@ router.post('/authenticate', (req, res) => {
                 bcrypt.compare(password, storedPassword)
                 .then((result) => {
                     // configure to return what front end is expecting
-                    res.json({login: true, user: user})
+                    res.json({login: true, user: user.id})
                 })
             }
         })
@@ -66,7 +66,7 @@ router.post('/register', (req, res) => {
 
                         user.save().then((savedUser) => {
                             // configure to return what front end is expecting
-                            res.json({userAdded: true, user: user})
+                            res.json({userAdded: true, user: user.id})
                         }).catch((error) => {
                             console.log(error)
                         })
