@@ -11,6 +11,7 @@ import thunk from 'redux-thunk';
 import reducer from './store/reducer';
 import Dashboard from './components/Dashboard';
 import RegisterPage from './components/RegisterPage';
+import AboutPage from './components/AboutPage';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
@@ -24,6 +25,7 @@ ReactDOM.render(
             <Route exact path="/index" component={App} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/about" component={AboutPage} />
           </Switch>
         </BaseLayout>
       </HashRouter>

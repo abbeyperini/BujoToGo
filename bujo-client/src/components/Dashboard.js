@@ -2,7 +2,17 @@ import React from 'react';
 
 function Dashboard() {
     return(
-        <h1>This will be a dashboard!</h1>
+        <div>
+            <h1>Index</h1>
+            <nav>
+                <p>This month</p>
+                <p>This week</p>
+                <p>Today</p>
+                <p>Collections</p>
+                <p>Future Log</p>
+                <p>Past</p>
+            </nav>
+        </div>
     )
 }
 
