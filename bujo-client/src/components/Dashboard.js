@@ -2,7 +2,7 @@ import React from 'react';
 
 function Dashboard() {
     return(
-        <div>
+        <div className="main-block">
             <h1>Index</h1>
             <nav>
                 <p>This month</p>

@@ -5,6 +5,7 @@ const models = require('../models');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 module.exports = router;
 router.use(cors());
@@ -31,8 +32,8 @@ router.post('/authenticate', (req, res) => {
 
                 bcrypt.compare(password, storedPassword)
                 .then((result) => {
-                    // configure to return what front end is expecting
-                    res.json({login: true, user: user.id})
+                    const token = jwt.sign({userId: user.id}, process.env.JWT_KEY)
+                    res.json({login: true, token: token})
                 })
             }
         })
@@ -65,8 +66,8 @@ router.post('/register', (req, res) => {
                         });
 
                         user.save().then((savedUser) => {
-                            // configure to return what front end is expecting
-                            res.json({userAdded: true, user: user.id})
+                            const token = jwt.sign({userId: user.id}, 'SECRETKEY');
+                            res.json({userAdded: true, token: token})
                         }).catch((error) => {
                             console.log(error)
                         })

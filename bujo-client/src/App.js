@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -16,14 +15,17 @@ function App(props) {
   }
 
   const handleOnClick = () => {
+    console.log('click')
     props.login(user)
   }
 
   return (
-    <div className="LoginBoxes">
-      <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
-      <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
-      <button onClick={handleOnClick}>Login</button>
+    <div className="main-block">
+      <div className="input-block">
+        <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
+        <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
+        <button onClick={handleOnClick}>Login</button>
+      </div>
       <p>Need a username? <NavLink to="/register">Register</NavLink></p>
     </div>
   );

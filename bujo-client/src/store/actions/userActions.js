@@ -1,10 +1,12 @@
 import { userConstants } from './userActionTypes';
 import { userService } from './userService';
 import history from '../../utils/history';
+import { setAuthenticationHeader } from '../../utils/authenticate';
 
 export const userActions = {
     login,
-    register
+    register,
+    logout
 }
 
 function login(user) {
@@ -12,10 +14,13 @@ function login(user) {
         userService.login(user)
         .then(
             result => {
-                if (result.login === true) {
-                    dispatch(success(result.user));
+                if (result.data.login === true) {
+                    const token = result.data.token;
+                    localStorage.setItem('jsonwebtoken', token);
+                    setAuthenticationHeader(token);
+                    dispatch(success(result.data.user));
                     history.push('/dashboard');
-                } else if (result.login === false) {
+                } else if (result.data.login === false) {
                     let error = "Username or password is incorrect."
                     dispatch(failure(error))
                 }
@@ -26,7 +31,7 @@ function login(user) {
         )
     }
 
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, payload: user } }
+    function success(user) { return { type: userConstants.LOGIN_SUCCESS } }
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, payload: error } }
 }
 
@@ -35,10 +40,13 @@ function register(user) {
         userService.register(user)
         .then(
             result => {
-                if (result.userAdded === true) {
+                if (result.data.userAdded === true) {
+                    const token = result.data.token;
+                    localStorage.setItem('jsonwebtoken', token);
+                    setAuthenticationHeader(token);
                     dispatch(success(result.user));
                     history.push('/dashboard');
-                } else if (result.userAdded === false) {
+                } else if (result.data.userAdded === false) {
                     let error = "Username exists."
                     dispatch(failure(error))
                 }
@@ -49,6 +57,11 @@ function register(user) {
         )
     }
 
-    function success(user) { return { type: userConstants.REGISTER_SUCCESS, payload: user } }
+    function success(user) { return { type: userConstants.REGISTER_SUCCESS } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, payload: error } }
+}
+
+function logout() {
+    userService.logout()
+    return { type: userConstants.LOGOUT }
 }

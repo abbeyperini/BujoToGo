@@ -15,14 +15,20 @@ function RegisterPage(props) {
     }
 
     const handleOnClick = () => {
-        props.register(user)
+        if (user.username && user.password && user.firstName && user.lastName) {
+            props.register(user)
+        }
     }
 
     return (
-        <div className="LoginBoxes">
-          <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
-          <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
-          <button onClick={handleOnClick}>Register</button>
+        <div className="main-block">
+            <div className="input-block">
+                <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
+                <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
+                <input onChange={handleOnChange} type="text" placeholder="first name" name="firstName"></input>
+                <input onChange={handleOnChange} type="text" placeholder="last name" name="lastName"></input>
+                <button onClick={handleOnClick}>Register</button>
+            </div>
           <p>Already have a username? <NavLink to="/index">Login</NavLink></p>
         </div>
       );
