@@ -32,8 +32,15 @@ router.post('/authenticate', (req, res) => {
 
                 bcrypt.compare(password, storedPassword)
                 .then((result) => {
-                    const token = jwt.sign({userId: user.id}, process.env.JWT_KEY)
-                    res.json({login: true, token: token})
+                    if (result) {
+                        const token = jwt.sign({userId: user.id}, process.env.JWT_KEY)
+                        res.json({login: true, token: token})
+                    } else {
+                        res.json({login: false})
+                    }
+                })
+                .catch((error) => {
+                    res.json({login: false, error: error})
                 })
             }
         })

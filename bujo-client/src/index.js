@@ -13,6 +13,9 @@ import Dashboard from './components/Dashboard';
 import RegisterPage from './components/RegisterPage';
 import AboutPage from './components/AboutPage';
 import requireAuth from './components/requireAuth';
+import MonthlyCalendar from './components/MonthlyCalendar';
+import WeeklyCalendar from './components/WeeklyCalendar';
+import DailyCalendar from './components/DailyCalendar';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
@@ -27,6 +30,9 @@ ReactDOM.render(
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
             <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/calendar/monthly" component={MonthlyCalendar} />
+            <Route exact path="/calendar/weekly" component={WeeklyCalendar}/>
+            <Route exact path="/calendar/daily" component={DailyCalendar}/>
             <Redirect exact from='/' to='/dashboard' />
           </Switch>
         </BaseLayout>

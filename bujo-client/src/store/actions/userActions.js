@@ -63,5 +63,6 @@ function register(user) {
 
 function logout() {
     userService.logout()
+    history.push('/index')
     return { type: userConstants.LOGOUT }
 }

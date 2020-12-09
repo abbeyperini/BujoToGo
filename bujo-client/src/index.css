@@ -45,3 +45,8 @@ button {
 input {
   margin: 20px;
 }
+
+.calendar {
+  width: 600px;
+  height: 800px;
+}

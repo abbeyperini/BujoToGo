@@ -15,12 +15,12 @@ function App(props) {
   }
 
   const handleOnClick = () => {
-    console.log('click')
     props.login(user)
   }
 
   return (
     <div className="main-block">
+      {props.error ? <h2>{props.error}</h2> : null}
       <div className="input-block">
         <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
         <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
@@ -31,10 +31,16 @@ function App(props) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    error: state.error
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (user) => dispatch(userActions.login(user))
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
