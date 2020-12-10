@@ -29,8 +29,8 @@ function RegisterPage(props) {
                 <input onChange={handleOnChange} type="text" placeholder="first name" name="firstName"></input>
                 <input onChange={handleOnChange} type="text" placeholder="last name" name="lastName"></input>
                 <button onClick={handleOnClick}>Register</button>
+                <NavLink to="/index"><button>Login</button></NavLink>
             </div>
-          <p>Already have a username? <NavLink to="/index">Login</NavLink></p>
         </div>
       );
 }

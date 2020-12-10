@@ -1,4 +1,4 @@
-import { userConstants } from './actions/userActionTypes';
+import { userConstants } from '../actions/userActionTypes';
 
 const reducer = (state = {isAuthenticated: false}, action) => {
     switch(action.type) {

@@ -1,0 +1,7 @@
+export const eventConstants = {
+    EVENTS_FETCHED: 'EVENTS_FETCHED',
+    EVENT_FETCH_FAIL: 'EVENTS_FETCH_FAIL',
+    
+    EVENT_ADDED: 'EVENT_ADDED',
+    EVENT_ADD_FAIL: 'EVENT_ADD_FAIL'
+}

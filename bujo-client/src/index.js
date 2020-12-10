@@ -5,10 +5,11 @@ import App from './App';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import BaseLayout from './components/BaseLayout';
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducer from './store/reducer';
+import userReducer from './store/reducers/userReducer';
+import eventReducer from './store/reducers/eventReducer';
 import Dashboard from './components/Dashboard';
 import RegisterPage from './components/RegisterPage';
 import AboutPage from './components/AboutPage';
@@ -16,9 +17,15 @@ import requireAuth from './components/requireAuth';
 import MonthlyCalendar from './components/MonthlyCalendar';
 import WeeklyCalendar from './components/WeeklyCalendar';
 import DailyCalendar from './components/DailyCalendar';
+import Monthly from './components/Monthly';
+
+const rootReducer = combineReducers({
+  userR: userReducer,
+  eventR: eventReducer
+})
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,10 +37,11 @@ ReactDOM.render(
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
             <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/calendar/monthly" component={MonthlyCalendar} />
-            <Route exact path="/calendar/weekly" component={WeeklyCalendar}/>
-            <Route exact path="/calendar/daily" component={DailyCalendar}/>
-            <Redirect exact from='/' to='/dashboard' />
+            <Route exact path="/calendar/monthly" component={requireAuth(MonthlyCalendar)} />
+            <Route exact path="/calendar/weekly" component={requireAuth(WeeklyCalendar)}/>
+            <Route exact path="/calendar/daily" component={requireAuth(DailyCalendar)}/>
+            <Route exact ppath="/monthly" component={requireAuth(Monthly)}/>
+            <Redirect exact from='/' to='/index'/>
           </Switch>
         </BaseLayout>
       </HashRouter>

@@ -25,8 +25,8 @@ function App(props) {
         <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
         <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
         <button onClick={handleOnClick}>Login</button>
+        <NavLink to="/register"><button>Register</button></NavLink>
       </div>
-      <p>Need a username? <NavLink to="/register">Register</NavLink></p>
     </div>
   );
 }

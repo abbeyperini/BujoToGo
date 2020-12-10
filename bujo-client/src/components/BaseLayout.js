@@ -4,7 +4,7 @@ import Header from './Header';
 
 function BaseLayout(props) {
     return(
-        <div>
+        <div className="base">
             <Header/>
                 <main>
                     {props.children}

@@ -19,7 +19,7 @@ export default function(ComposedComponent) {
 
     const mapStateToProps = (state) => {
         return {
-            isAuthenticated: state.isAuthenticated
+            isAuthenticated: state.userR.isAuthenticated
         }
     }
 

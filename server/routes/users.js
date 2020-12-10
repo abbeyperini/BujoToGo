@@ -77,6 +77,7 @@ router.post('/register', (req, res) => {
                             res.json({userAdded: true, token: token})
                         }).catch((error) => {
                             console.log(error)
+                            res.json({userAdded: false})
                         })
                     })
                 })
