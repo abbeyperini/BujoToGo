@@ -1,11 +1,12 @@
 import { eventConstants } from '../actions/eventActionTypes';
 
-const reducer = (state = {}, action) => {
+const initialState = {events: []}
+
+const reducer = (state = initialState, action) => {
     
     switch(action.type) {
         case eventConstants.EVENTS_FETCHED:
             return {
-                ...state,
                 events: action.payload
             }
         case eventConstants.EVENT_FETCH_FAIL:
@@ -22,6 +23,28 @@ const reducer = (state = {}, action) => {
             return {
                 ...state,
                 eventAdded: false,
+                error: action.payload
+            }
+        case eventConstants.EVENT_DELETED:
+            return {
+                ...state,
+                eventDeleted: true,
+            }
+        case eventConstants.EVENT_DELETE_FAIL:
+            return {
+                ...state,
+                eventDeleted: false,
+                error: action.payload
+            }
+        case eventConstants.SINGLE_EVENT_FETCHED:
+            return {
+                ...state,
+                singleEvent: action.payload
+            }
+        case eventConstants.SINGLE_EVENT_FETCH_FAIL:
+            return {
+                ...state,
+                singleEventFetched: false,
                 error: action.payload
             }
         default:

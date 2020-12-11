@@ -2,7 +2,10 @@ import axios from 'axios';
 
 export const eventService = {
     addEvent,
-    fetchEvents
+    fetchEvents,
+    deleteEvent,
+    fetchSingleEvent,
+    editEvent
 }
 
 function addEvent(eventObj) {
@@ -18,4 +21,22 @@ function addEvent(eventObj) {
 function fetchEvents() {
 
     return axios.get('http://localhost:8080/events/fetch-all')
+}
+
+function deleteEvent(id) {
+    return axios.delete(`http://localhost:8080/events/delete-event/${id}`)
+}
+
+function fetchSingleEvent(id) {
+    return axios.get(`http://localhost:8080/events/fetch-single/${id}`)
+}
+
+function editEvent(localEvent) {
+    return axios.post('http://localhost:8080/events/edit-event', {
+        id: localEvent.id,
+        title: localEvent.title,
+        start: localEvent.start, 
+        end: localEvent.end,
+        allDay: localEvent.allDay
+    })
 }

@@ -1,29 +1,31 @@
 import { userConstants } from '../actions/userActionTypes';
 
-const reducer = (state = {isAuthenticated: false}, action) => {
+const initialState = { isAuthenticated: false };
+
+const reducer = (state = initialState, action) => {
     switch(action.type) {
         case userConstants.LOGIN_SUCCESS:
-            return {
+            return Object.assign( {}, state, {
                 isAuthenticated: true
-            }
+            })
         case userConstants.LOGIN_FAILURE:
-            return {
+            return Object.assign({}, state, {
                 isAuthenticated: false,
                 error: action.payload
-            }
+            })
         case userConstants.REGISTER_SUCCESS:
-            return {
+            return Object.assign({}, state, {
                 isAuthenticated: true
-            }
+            })
         case userConstants.REGISTER_FAILURE:
-            return {
+            return Object.assign({}, state, {
                 isAuthenticated: false,
                 error: action.payload
-            }
+            })
         case userConstants.LOGOUT:
-            return {
+            return Object.assign({}, state, {
                 isAuthenticated: false
-            }
+            })
         default:
             return {
                 state

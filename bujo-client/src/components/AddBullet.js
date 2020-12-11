@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { eventActions } from '../store/actions/eventActions.js'
+import { eventActions } from '../store/actions/eventActions.js';
+import { formats } from '../utils/dateFormat';
 
 
 function AddBullet(props) {
@@ -16,8 +17,8 @@ function AddBullet(props) {
     }
 
     const handleOnClick = (localEvent) => {
-        let startString = localEvent.startDate + "T" + localEvent.startTime + ":00";
-        let endString = localEvent.endDate + "T" +localEvent.endTime + ":00";
+        let startString = formats.ISOstring(localEvent.startDate, localEvent.startTime)
+        let endString = formats.ISOstring(localEvent.endDate, localEvent.endTime);
 
         let eventObj = {
             title: localEvent.title,

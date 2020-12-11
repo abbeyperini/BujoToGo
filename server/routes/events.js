@@ -57,3 +57,57 @@ router.get('/fetch-all', (req, res) => {
         res.json({error: error})
     })
 })
+
+router.delete('/delete-event/:id', (req, res) => {
+    let eventId = req.params.id;
+
+    models.Event.destroy({
+        where: {
+            id: eventId
+        }
+    }).then((result) => {
+        res.json({eventDelete: true, result: result})
+    }).catch((error) => {
+        res.json({eventDelete: false, error: error})
+    })
+})
+
+router.post('/edit-event', (req, res) => {
+
+    let eventId = req.body.id;
+    let title = req.body.title;
+    let start = req.body.start;
+    let end = req.body.end;
+    let all_day = req.body.allDay;
+
+    models.Event.update({
+        title: title,
+        start: start,
+        end: end,
+        all_day: all_day,
+    }, {
+        where: {
+            id: eventId
+        }
+    }).then(result => {
+        console.log(result)
+        res.json({eventEdit: true, result: result})
+    }).catch(error => {
+        console.log(error)
+        res.json({eventEdit: false, error: error})
+    })
+})
+
+router.get('/fetch-single/:id', (req, res) => {
+    let eventId = req.params.id;
+
+    models.Event.findOne({
+        where: {
+            id: eventId
+        }
+    }).then((result) => {
+        res.json({events: result})
+    }).catch((error) => {
+        res.json({error: error})
+    })
+})

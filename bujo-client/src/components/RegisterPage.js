@@ -24,10 +24,14 @@ function RegisterPage(props) {
         <div className="main-block">
             {props.error ? <h2>{props.error}</h2> : null}
             <div className="input-block">
-                <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
-                <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
-                <input onChange={handleOnChange} type="text" placeholder="first name" name="firstName"></input>
-                <input onChange={handleOnChange} type="text" placeholder="last name" name="lastName"></input>
+                <label>Username:</label>
+                <input onChange={handleOnChange} type="text" name="username"></input>
+                <label>Password:</label>
+                <input onChange={handleOnChange} type="text" name="password"></input>
+                <label>First Name:</label>
+                <input onChange={handleOnChange} type="text" name="firstName"></input>
+                <label>Last Name:</label>
+                <input onChange={handleOnChange} type="text" name="lastName"></input>
                 <button onClick={handleOnClick}>Register</button>
                 <NavLink to="/index"><button>Login</button></NavLink>
             </div>

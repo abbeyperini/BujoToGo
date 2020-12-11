@@ -28,7 +28,7 @@ function Header(props) {
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.isAuthenticated 
+        isAuth: state.userR.isAuthenticated 
     }
 }
 

@@ -22,8 +22,10 @@ function App(props) {
     <div className="main-block">
       {props.error ? <h2>{props.error}</h2> : null}
       <div className="input-block">
-        <input onChange={handleOnChange} type="text" placeholder="username" name="username"></input>
-        <input onChange={handleOnChange} type="text" placeholder="password" name="password"></input>
+        <label>Username:</label>
+        <input onChange={handleOnChange} type="text" name="username"></input>
+        <label>Password:</label>
+        <input onChange={handleOnChange} type="text" name="password"></input>
         <button onClick={handleOnClick}>Login</button>
         <NavLink to="/register"><button>Register</button></NavLink>
       </div>
