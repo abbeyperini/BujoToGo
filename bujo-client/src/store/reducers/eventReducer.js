@@ -47,6 +47,26 @@ const reducer = (state = initialState, action) => {
                 singleEventFetched: false,
                 error: action.payload
             }
+        case eventConstants.MONTHLY_EVENTS_FETCHED:
+            return {
+                ...state,
+                monthlyEvents: action.payload
+            }
+        case eventConstants.MONTHLY_EVENTS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case eventConstants.DAILY_EVENTS_FETCHED:
+            return {
+                ...state,
+                dailyEvents: action.payload
+            }
+        case eventConstants.DAILY_EVENTS_FAIL:
+            return {
+                state,
+                error: action.payload
+            }
         default:
             return state
     }

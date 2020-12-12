@@ -6,7 +6,9 @@ export const eventActions = {
     fetchEvents,
     deleteEvent,
     fetchSingleEvent,
-    editEvent
+    editEvent,
+    fetchMonthlyEvents,
+    fetchDailyEvents
 }
 
 function addEvent(eventObj) {
@@ -93,7 +95,6 @@ function editEvent(localEvent) {
         eventService.editEvent(localEvent)
         .then(
            result => {
-               console.log(result)
                dispatch(success(result.data));
            },
            error => {
@@ -104,4 +105,39 @@ function editEvent(localEvent) {
 
     function success(result) { return { type: eventConstants.EVENT_EDITED, payload: result } }
     function failure(error) { return { type: eventConstants.EVENT_EDIT_FAIL, payload: error } }
+}
+
+function fetchMonthlyEvents() {
+    return dispatch => {
+        eventService.fetchMonthlyEvents()
+        .then(
+            result => {
+                dispatch(success(result.data.events))
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function success(result) { return { type: eventConstants.MONTHLY_EVENTS_FETCHED, payload: result } }
+    function failure(error) { return { type: eventConstants.MONTHLY_EVENTS_FAIL, payload: error } }
+}
+
+function fetchDailyEvents() {
+    return dispatch => {
+        eventService.fetchDailyEvents()
+        .then(
+            result => {
+                console.log(result)
+                dispatch(success(result.data.events))
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function success(result) { return { type: eventConstants.DAILY_EVENTS_FETCHED, payload: result } }
+    function failure(error) { return { type: eventConstants.DAILY_EVENTS_FAIL, payload: error } }
 }

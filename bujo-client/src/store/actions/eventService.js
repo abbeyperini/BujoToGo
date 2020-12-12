@@ -5,7 +5,9 @@ export const eventService = {
     fetchEvents,
     deleteEvent,
     fetchSingleEvent,
-    editEvent
+    editEvent,
+    fetchMonthlyEvents,
+    fetchDailyEvents
 }
 
 function addEvent(eventObj) {
@@ -39,4 +41,12 @@ function editEvent(localEvent) {
         end: localEvent.end,
         allDay: localEvent.allDay
     })
+}
+
+function fetchMonthlyEvents() {
+    return axios.get('http://localhost:8080/events/monthly-events')
+}
+
+function fetchDailyEvents() {
+    return axios.get('http://localhost:8080/events/daily-events')
 }

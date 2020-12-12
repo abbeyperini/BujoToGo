@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { userActions } from './store/actions/userActions';
@@ -17,6 +17,10 @@ function App(props) {
   const handleOnClick = () => {
     props.login(user)
   }
+
+  useEffect(() => {
+    userActions.logout()
+  }, [])
 
   return (
     <div className="main-block">

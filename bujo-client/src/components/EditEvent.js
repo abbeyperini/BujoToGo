@@ -11,6 +11,7 @@ function EditEvent(props) {
 
     const fetchEvent = (id) => {
         props.fetchSingleEvent(id)
+        initialEvent()
     }
 
     const initialEvent = () => {
@@ -42,9 +43,6 @@ function EditEvent(props) {
 
     useEffect(() => {
         fetchEvent(id)
-        if(props.singleEvent) {
-            initialEvent()
-        }
     }, [])
 
     const handleOnChange = (e) => {
@@ -91,6 +89,7 @@ function EditEvent(props) {
                 <label>All Day Event?</label>
                 {localEvent.checkbox}
                 <button onClick={() => {handleOnClick(localEvent)}}>Edit</button>
+                <button onClick={() => {props.deleteEvent(localEvent.id)}}>Delete</button>
             </div>
         )
     } else {

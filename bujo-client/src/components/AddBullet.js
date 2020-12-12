@@ -5,9 +5,7 @@ import { formats } from '../utils/dateFormat';
 
 
 function AddBullet(props) {
-    const [localEvent, setLocalEvent] = useState({
-        allDay: false
-    });
+    const [localEvent, setLocalEvent] = useState({});
     
     const handleOnChange = (e) => {
         setLocalEvent({
@@ -26,7 +24,7 @@ function AddBullet(props) {
             end: endString,
             allDay: localEvent.allDay
         }
-        console.log(eventObj)
+        
         props.addEvent(eventObj)
     }
 

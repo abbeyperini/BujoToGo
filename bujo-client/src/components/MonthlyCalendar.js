@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Redirect, generatePath } from 'react-router-dom';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import AddBullet from './AddBullet';
@@ -15,10 +16,10 @@ function MonthlyCalendar(props) {
         <div className="main-block">
             <div className="calendar-container">
             <FullCalendar
-                className="calendar"
                 plugins={[ dayGridPlugin ]}
                 initialView="dayGridMonth"
                 events={props.events}
+                eventClick={(eventClickInfo) => {props.history.push(generatePath("/events/edit-event/:id", {id: eventClickInfo.event._def.publicId}))}}
             />
             </div>
             <AddBullet/>

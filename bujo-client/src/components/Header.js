@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { userActions } from '../store/actions/userActions';
 import { connect} from 'react-redux';
 import { ReactComponent as Logo } from '../images/bujoLogo.svg';
 
 function Header(props) {
+    const [isAuth, setIsAuth] = useState(false)
 
     const handleOnClick = () => {
         props.logout()
     }
+    
+    useEffect(() => {
+        setIsAuth(localStorage.getItem('isAuthenticated'))
+    }, [])
 
     return(
         <header className="flex-row">
@@ -17,19 +22,13 @@ function Header(props) {
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div>
             <nav>
-                { props.isAuth ? <p><NavLink to='/dashboard'>Home</NavLink></p> : null }
-                { props.isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
-                { props.isAuth ? <p><NavLink to="/settings">Settings</NavLink></p> : null }
-                { props.isAuth ? <button onClick={handleOnClick}>Logout</button> : null }
+                { isAuth === "true" ? <p><NavLink to='/dashboard'>Home</NavLink></p> : null }
+                { isAuth === "true" ? <p><NavLink to="/key">Key</NavLink></p> : null }
+                { isAuth === "true" ? <p><NavLink to="/settings">Settings</NavLink></p> : null }
+                { isAuth === "true" ? <button onClick={handleOnClick}>Logout</button> : null }
             </nav>
         </header>
     )
-}
-
-const mapStateToProps = (state) => {
-    return {
-        isAuth: state.userR.isAuthenticated 
-    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(Header);

@@ -5,6 +5,8 @@ const models = require('../models');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const { Op } = require('sequelize');
+const { sequelize } = require('../models');
 
 module.exports = router;
 router.use(cors());
@@ -104,6 +106,44 @@ router.get('/fetch-single/:id', (req, res) => {
     models.Event.findOne({
         where: {
             id: eventId
+        }
+    }).then((result) => {
+        res.json({events: result})
+    }).catch((error) => {
+        res.json({error: error})
+    })
+})
+
+router.get('/monthly-events', (req, res) => {
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    const startDate = new Date(year, month, 01, 0, 0, 0, 0)
+    const endDate = new Date(year, (month + 1), 01, 0, 0, 0)
+
+    models.Event.findAll({
+        where: {
+            start: {
+                [Op.gt]: startDate,
+                [Op.lt]: endDate
+            }
+        }
+    }).then((result) => {
+        res.json({events: result})
+    }).catch((error) => {
+        res.json({error: error})
+    })
+})
+
+router.get('/daily-events/', (req, res) => {
+    const TODAY_START = new Date().setHours(0, 0, 0, 0);
+    const TODAY_END = new Date().setHours(24, 0, 0, 0)
+
+    models.Event.findAll({
+        where: {
+            start: {
+                [Op.gt]: TODAY_START,
+                [Op.lt]: TODAY_END
+            }
         }
     }).then((result) => {
         res.json({events: result})

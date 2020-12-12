@@ -1,7 +1,8 @@
 export const formats = {
     ISOstring,
     fromISOstring,
-    todayDate
+    todayDate,
+    formatTime
 }
 
 function ISOstring(date, time) {
@@ -39,4 +40,8 @@ const getWeekOfMonth = (date) => {
 
     if (date || week < 2 + index) return week;
     return week === weeksInMonth ? index + 5 : week;
+}
+
+function formatTime(isoString) {
+    return new Date(isoString).toLocaleTimeString('en', { timeStyle: 'short' } );
 }

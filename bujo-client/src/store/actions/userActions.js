@@ -17,6 +17,7 @@ function login(user) {
                 if (result.data.login === true) {
                     const token = result.data.token;
                     localStorage.setItem('jsonwebtoken', token);
+                    localStorage.setItem('isAuthenticated', true)
                     setAuthenticationHeader(token);
                     dispatch(success(result.data.user));
                     history.push('/dashboard');
@@ -43,6 +44,7 @@ function register(user) {
                 if (result.data.userAdded === true) {
                     const token = result.data.token;
                     localStorage.setItem('jsonwebtoken', token);
+                    localStorage.setItem('isAuthenticated', true)
                     setAuthenticationHeader(token);
                     dispatch(success(result.user));
                     history.push('/dashboard');
