@@ -22,9 +22,8 @@ function Header(props) {
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div>
             <nav>
-                { isAuth === "true" ? <p><NavLink to='/dashboard'>Home</NavLink></p> : null }
+                { isAuth === "true" ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
                 { isAuth === "true" ? <p><NavLink to="/key">Key</NavLink></p> : null }
-                { isAuth === "true" ? <p><NavLink to="/settings">Settings</NavLink></p> : null }
                 { isAuth === "true" ? <button onClick={handleOnClick}>Logout</button> : null }
             </nav>
         </header>

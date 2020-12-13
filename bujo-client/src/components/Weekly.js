@@ -11,25 +11,25 @@ import { ReactComponent as Completed } from '../images/basicIcons/x.svg';
 import { ReactComponent as MigrateF } from '../images/basicIcons/arrowR.svg';
 import { ReactComponent as MigrateB } from '../images/basicIcons/arrowL.svg';
 
-function Daily(props) {
+function Weekly(props) {
     let deleted = props.deleted;
     let eventAdded = props.eventAdded;
 
     useEffect(() => {
-        props.fetchDailyEvents()
+        props.fetchWeeklyEvents()
     }, [deleted, eventAdded])
 
-    if (!props.dailyEvents || !props.dailyEvents[0]) {
+    if (!props.weeklyEvents || !props.weeklyEvents[0]) {
         let todayObj = formats.todayDate();
         return (
             <div className="main-block">
-                <h1>{todayObj.day}, {todayObj.month} {todayObj.date}</h1>
+                <h1>{todayObj.month} - Week {todayObj.weekNum}</h1>
                 <h2>Create a bullet!</h2>
                 <AddBullet/>
             </div>
         )
     } else {
-        let bullets = props.dailyEvents.map(eventItem => {
+        let bullets = props.weeklyEvents.map(eventItem => {
             let start = formats.formatTime(eventItem.start);
             switch(eventItem.icon) {
                 case "task":
@@ -84,12 +84,10 @@ function Daily(props) {
                     break
             }
         })
-
         let todayObj = formats.todayDate();
-
         return(
             <div className="main-block">
-                <h1>{todayObj.day}, {todayObj.month} {todayObj.date}</h1>
+                <h1>{todayObj.month} - Week {todayObj.weekNum}</h1>
                 <ul>
                     {bullets}
                 </ul>
@@ -102,7 +100,7 @@ function Daily(props) {
 
 const mapStateToProps = (state) => {
     return {
-        dailyEvents: state.eventR.dailyEvents,
+        weeklyEvents: state.eventR.weeklyEvents,
         deleted: state.eventR.eventDeleted,
         eventAdded: state.eventR.eventAdded
     }
@@ -110,9 +108,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchDailyEvents: () => dispatch(eventActions.fetchDailyEvents()),
+        fetchWeeklyEvents: () => dispatch(eventActions.fetchWeeklyEvents()),
         deleteEvent: (id) => dispatch(eventActions.deleteEvent(id))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Daily);
+export default connect(mapStateToProps, mapDispatchToProps)(Weekly);

@@ -1,6 +1,7 @@
 import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import AddBullet from './AddBullet';
 
 
 const WeeklyCalendar = () => (
@@ -14,6 +15,7 @@ const WeeklyCalendar = () => (
                 start: '2020-12-10'
             }]}
         />
+        <AddBullet />
     </div>
 )
 

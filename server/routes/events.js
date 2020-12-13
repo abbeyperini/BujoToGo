@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
 const { sequelize } = require('../models');
+const formats = require('../utils/dateFormat');
 
 module.exports = router;
 router.use(cors());
@@ -21,12 +22,14 @@ router.post('/new-event', (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_KEY);
     let userId = decoded.userId;
     
+    let icon = req.body.icon;
     let title = req.body.title;
     let start = req.body.start;
     let end = req.body.end;
     let all_day = req.body.allDay;
 
     let event = models.Event.build({
+        icon: icon,
         title: title,
         start: start,
         end: end,
@@ -52,7 +55,10 @@ router.get('/fetch-all', (req, res) => {
     models.Event.findAll({
         where: {
             user_id: userId
-        }
+        },
+        order: [
+            ['start', 'ASC']
+        ]
     }).then((result) => {
         res.json({events: result})
     }).catch((error) => {
@@ -81,8 +87,10 @@ router.post('/edit-event', (req, res) => {
     let start = req.body.start;
     let end = req.body.end;
     let all_day = req.body.allDay;
+    let icon = req.body.icon;
 
     models.Event.update({
+        icon: icon,
         title: title,
         start: start,
         end: end,
@@ -126,7 +134,10 @@ router.get('/monthly-events', (req, res) => {
                 [Op.gt]: startDate,
                 [Op.lt]: endDate
             }
-        }
+        },
+        order: [
+            ['start', 'ASC']
+        ]
     }).then((result) => {
         res.json({events: result})
     }).catch((error) => {
@@ -134,7 +145,27 @@ router.get('/monthly-events', (req, res) => {
     })
 })
 
-router.get('/daily-events/', (req, res) => {
+router.get('/weekly-events', (req, res) => {
+    let week = formats.weeklyFormat();
+
+    models.Event.findAll({
+        where: {
+            start: {
+                [Op.gt]: week.start,
+                [Op.lt]: week.end
+            }
+        },
+        order: [
+            ['start', 'ASC']
+        ]
+    }).then((result) => {
+        res.json({events: result})
+    }).catch((error) => {
+        res.json({error: error})
+    })
+})
+
+router.get('/daily-events', (req, res) => {
     const TODAY_START = new Date().setHours(0, 0, 0, 0);
     const TODAY_END = new Date().setHours(24, 0, 0, 0)
 
@@ -144,7 +175,10 @@ router.get('/daily-events/', (req, res) => {
                 [Op.gt]: TODAY_START,
                 [Op.lt]: TODAY_END
             }
-        }
+        },
+        order: [
+            ['start', 'ASC']
+        ]
     }).then((result) => {
         res.json({events: result})
     }).catch((error) => {

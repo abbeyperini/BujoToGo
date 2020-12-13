@@ -8,6 +8,7 @@ export const eventActions = {
     fetchSingleEvent,
     editEvent,
     fetchMonthlyEvents,
+    fetchWeeklyEvents,
     fetchDailyEvents
 }
 
@@ -124,12 +125,29 @@ function fetchMonthlyEvents() {
     function failure(error) { return { type: eventConstants.MONTHLY_EVENTS_FAIL, payload: error } }
 }
 
+function fetchWeeklyEvents() {
+    return dispatch => {
+        eventService.fetchWeeklyEvents()
+        .then(
+            result => {
+                console.log(result)
+                dispatch(success(result.data.events))
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function success(result) { return { type: eventConstants.WEEKLY_EVENTS_FETCHED, payload: result } }
+    function failure(error) { return { type: eventConstants.WEEKLY_EVENTS_FAIL, payload: error } }
+}
+
 function fetchDailyEvents() {
     return dispatch => {
         eventService.fetchDailyEvents()
         .then(
             result => {
-                console.log(result)
                 dispatch(success(result.data.events))
             },
             error => {

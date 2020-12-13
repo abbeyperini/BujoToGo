@@ -12,11 +12,11 @@ function Dashboard() {
             <nav>
                 <p><NavLink to="/calendar/monthly">{todayObj.month} - calendar view</NavLink></p>
                 <p><NavLink to="/monthly">{todayObj.month} - bujo view</NavLink></p>
-                <p><NavLink to="/calendar/weekly">{todayObj.month} - Week {todayObj.weekNum}</NavLink></p>
+                <p><NavLink to="/calendar/weekly">{todayObj.month} - Week {todayObj.weekNum} - calendar view</NavLink></p>
+                <p><NavLink to="/weekly">{todayObj.month} - Week {todayObj.weekNum} - bujo view</NavLink></p>
                 <p><NavLink to="/calendar/daily">{todayObj.day}, {todayObj.month} {todayObj.date} - calendar view</NavLink></p>
                 <p><NavLink to="/daily">{todayObj.day}, {todayObj.month} {todayObj.date} - bujo view</NavLink></p>
                 <p>Collections</p>
-                <p>Future Log</p>
             </nav>
         </div>
     )

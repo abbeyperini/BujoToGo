@@ -20,6 +20,8 @@ import DailyCalendar from './components/DailyCalendar';
 import Monthly from './components/Monthly';
 import EditEvent from './components/EditEvent';
 import Daily from './components/Daily';
+import Weekly from './components/Weekly';
+import Key from './components/Key';
 
 const rootReducer = combineReducers({
   userR: userReducer,
@@ -36,6 +38,7 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route exact path="/index" component={App} />
+            <Route exact path="/key" component={requireAuth(Key)} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
             <Route exact path="/about" component={AboutPage} />
@@ -43,8 +46,10 @@ ReactDOM.render(
             <Route exact path="/calendar/weekly" component={requireAuth(WeeklyCalendar)}/>
             <Route exact path="/calendar/daily" component={requireAuth(DailyCalendar)}/>
             <Route exact path="/monthly" component={requireAuth(Monthly)}/>
+            <Route exact path="/weekly" component={requireAuth(Weekly)} />
             <Route exact path="/daily" component={requireAuth(Daily)} />
             <Route exact path="/events/edit-event/:id" component={requireAuth(EditEvent)}/>
+            <Redirect exact from="/" to="/index" />
           </Switch>
         </BaseLayout>
       </HashRouter>

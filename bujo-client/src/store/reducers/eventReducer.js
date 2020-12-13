@@ -57,6 +57,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
+        case eventConstants.WEEKLY_EVENTS_FETCHED:
+            return {
+                ...state,
+                weeklyEvents: action.payload
+            }
+        case eventConstants.WEEKLY_EVENTS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case eventConstants.DAILY_EVENTS_FETCHED:
             return {
                 ...state,

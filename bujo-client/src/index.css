@@ -77,6 +77,79 @@ input {
   margin: 50px;
 }
 
+.image-dropdown {
+  border: 1px solid black;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+  transition: height 0.1s;
+  margin: 20px;
+}
+
+.image-dropdown:hover {
+  height: 200px;
+  overflow-y: scroll;
+  transition: height 0.5s;
+}
+
+.image-dropdown input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.image-dropdown label {
+  display: none;
+  margin: 2px;
+  opacity: 0.2;
+  height: 46px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.label-task{
+  background-image: url('./images/basicIcons/bullet.svg');
+}
+
+.label-event {
+  background-image: url('./images/basicIcons/o.svg')
+}
+
+.label-completed {
+  background-image: url('./images/basicIcons/x.svg');
+}
+
+.label-migrateF {
+  background-image: url('./images/basicIcons/arrowR.svg');
+}
+
+.label-migrateB {
+  background-image: url('./images/basicIcons/arrowL.svg');
+}
+
+.label-note {
+  background-image: url('./images/basicIcons/dash.svg');
+}
+
+.image-dropdown:hover label {
+  display: block;
+}
+
+.image-dropdown input:checked + label {
+  opacity: 1 !important;
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+.bullet-icon {
+  width: 20px;
+}
+
 a:link, a:active, a:visited {
   color: #E1E4F3;
   text-decoration: none;
