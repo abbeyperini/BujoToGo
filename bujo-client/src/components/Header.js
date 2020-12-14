@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { userActions } from '../store/actions/userActions';
 import { connect} from 'react-redux';
 import { ReactComponent as Logo } from '../images/bujoLogo.svg';
 
 function Header(props) {
-    const [isAuth, setIsAuth] = useState({});
 
     const handleOnClick = () => {
         props.logout()
     }
     
-    useEffect(() => {
-        setIsAuth(props.isAuth)
-    }, [])
 
     return(
         <header className="flex-row">
@@ -22,9 +18,9 @@ function Header(props) {
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div>
             <nav>
-                { isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
-                { isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
-                { isAuth ? <button onClick={handleOnClick}>Logout</button> : null }
+                { props.isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
+                { props.isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
+                { props.isAuth ? <button onClick={handleOnClick}>Logout</button> : null }
             </nav>
         </header>
     )

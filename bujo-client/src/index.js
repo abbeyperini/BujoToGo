@@ -14,9 +14,6 @@ import Dashboard from './components/Dashboard';
 import RegisterPage from './components/RegisterPage';
 import AboutPage from './components/AboutPage';
 import requireAuth from './components/requireAuth';
-import MonthlyCalendar from './components/MonthlyCalendar';
-import WeeklyCalendar from './components/WeeklyCalendar';
-import DailyCalendar from './components/DailyCalendar';
 import Monthly from './components/Monthly';
 import EditEvent from './components/EditEvent';
 import Daily from './components/Daily';
@@ -56,9 +53,6 @@ ReactDOM.render(
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
               <Route exact path="/about" component={AboutPage} />
-              <Route exact path="/calendar/monthly" component={requireAuth(MonthlyCalendar)} />
-              <Route exact path="/calendar/weekly" component={requireAuth(WeeklyCalendar)}/>
-              <Route exact path="/calendar/daily" component={requireAuth(DailyCalendar)}/>
               <Route exact path="/monthly" component={requireAuth(Monthly)}/>
               <Route exact path="/weekly" component={requireAuth(Weekly)} />
               <Route exact path="/daily" component={requireAuth(Daily)} />

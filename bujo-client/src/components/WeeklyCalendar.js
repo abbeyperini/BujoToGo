@@ -1,22 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import AddBullet from './AddBullet';
+import { generatePath } from 'react-router-dom';
+import { eventActions } from '../store/actions/eventActions';
 
 
-const WeeklyCalendar = () => (
+const WeeklyCalendar = (props) => (
     <div className="calendar">
         <FullCalendar
             plugins={[ dayGridPlugin ]}
             initialView="dayGridWeek"
-            events={[{
-                id: 'a',
-                title: 'my event',
-                start: '2020-12-10'
-            }]}
+            events={props.events}
+            eventClick={(eventClickInfo) => {props.history.push(generatePath("/events/edit-event/:id", {id: eventClickInfo.event._def.publicId}))}}
         />
         <AddBullet />
     </div>
 )
 
-export default WeeklyCalendar;
+const mapStateToProps = (state) => {
+    return {
+        events: state.eventR.events
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchEvents: () => dispatch(eventActions.fetchEvents())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeeklyCalendar);
