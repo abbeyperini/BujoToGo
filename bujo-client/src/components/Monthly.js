@@ -1,9 +1,11 @@
+import { getUnequalProps } from '@fullcalendar/react';
 import React, { useState } from 'react';
+import AddBullet from './AddBullet';
 import MonthlyBujo from './MonthlyBujo';
 import MonthlyCalendar from './MonthlyCalendar';
 import SwitchComponents from './SwitchComponents';
 
-function Monthly() {
+function Monthly(props) {
     const [activeComponent, setActiveComponent] = useState("MonthlyBujo")
 
     const handleOnClick = () => {
@@ -15,12 +17,13 @@ function Monthly() {
     }
 
     return (
-        <div>
-            <button onClick={handleOnClick}>Switch View</button>
+        <div className="main-block">
             <SwitchComponents active={activeComponent}>
                 <MonthlyBujo name="MonthlyBujo" />
-                <MonthlyCalendar name="MonthlyCalendar" />
+                <MonthlyCalendar name="MonthlyCalendar" history={props.history}/>
             </SwitchComponents>
+            <button onClick={handleOnClick} className="secondary-button">Switch View</button>
+            <AddBullet />
         </div>
     )
 }

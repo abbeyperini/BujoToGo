@@ -12,15 +12,16 @@ function Header(props) {
     
 
     return(
-        <header className="flex-row">
+        <header>
             <div className="flex-row">
                 <h1>BujoToGo</h1>
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div>
-            <nav>
+            <nav className="flex-row">
                 { props.isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
                 { props.isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
-                { props.isAuth ? <button onClick={handleOnClick}>Logout</button> : null }
+                <p><NavLink to="/about">About</NavLink></p>
+                { props.isAuth ? <button onClick={handleOnClick} className="secondary-button">Logout</button> : null }
             </nav>
         </header>
     )

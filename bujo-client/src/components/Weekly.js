@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import WeeklyBujo from './WeeklyBujo';
 import WeeklyCalendar from './WeeklyCalendar';
 import SwitchComponents from './SwitchComponents';
+import AddBullet from './AddBullet';
 
-function Weekly() {
+function Weekly(props) {
     const [activeComponent, setActiveComponent] = useState("WeeklyBujo")
 
     const handleOnClick = () => {
@@ -15,12 +16,13 @@ function Weekly() {
     }
 
     return (
-        <div>
-            <button onClick={handleOnClick}>Switch View</button>
+        <div className="main-block">
             <SwitchComponents active={activeComponent}>
                 <WeeklyBujo name="WeeklyBujo" />
-                <WeeklyCalendar name="WeeklyCalendar" />
+                <WeeklyCalendar name="WeeklyCalendar" history={props.history}/>
             </SwitchComponents>
+            <button className="secondary-button" onClick={handleOnClick}>Switch View</button>
+            <AddBullet />
         </div>
     )
 }

@@ -21,7 +21,8 @@ function RegisterPage(props) {
     }
 
     return (
-        <div className="main-block">
+        <div className="logreg-block">
+            <h1>Register</h1>
             {props.error ? <h2>{props.error}</h2> : null}
             <div className="input-block">
                 <label>Username:</label>
@@ -32,8 +33,13 @@ function RegisterPage(props) {
                 <input onChange={handleOnChange} type="text" name="firstName"></input>
                 <label>Last Name:</label>
                 <input onChange={handleOnChange} type="text" name="lastName"></input>
-                <button onClick={handleOnClick}>Register</button>
-                <NavLink to="/index"><button>Login</button></NavLink>
+                <button onClick={handleOnClick} className="primary-button">Register</button>
+                <div className="flex-row">
+                    <hr className="line"></hr>
+                    <p>or</p>
+                    <hr className="line"></hr>
+                </div>
+                <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
             </div>
         </div>
       );

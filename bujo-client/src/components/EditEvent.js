@@ -62,7 +62,7 @@ function EditEvent(props) {
 
     if(!props.singleEvent || props.singleLoading) {
         return (
-            <h1>Loading!</h1>
+            <div className="main-block"><h1>Loading!</h1></div>
         )
     } else if (!props.singleLoading) {
         let startObj = formats.fromISOstring(props.singleEvent.start)
@@ -181,11 +181,13 @@ function EditEvent(props) {
     }
 
         return(
-            <div>
+            <div className="main-block">
+                <h1>Edit</h1>
                 {edited && <h1>Event edited!</h1>}
                 <div className="input-block">
+                    <label>Icon</label>
                     {iconPicker.icon}
-                    <label>Title:</label>
+                    <label>Title</label>
                     <input onChange={handleOnChange} name="title" type="text" defaultValue={props.singleEvent.title}></input>
                     <label>Start Date</label>
                     <input type="date" name="startDate" onChange={handleOnChange} defaultValue={startObj.date}></input>
@@ -195,10 +197,14 @@ function EditEvent(props) {
                     <input type="date" name="endDate" onChange={handleOnChange} defaultValue={endObj.date}></input>
                     <label>End Time</label>
                     <input type="time" name="endTime" onChange={handleOnChange} defaultValue={endObj.time}></input>
-                    <label>All Day Event?</label>
-                    {checkInput.checkbox}
-                    <button onClick={() => {handleOnClick(localEvent)}}>Edit</button>
-                    <button onClick={() => {props.deleteEvent(localEvent.id)}}>Delete</button>
+                    <div className="checkbox-container">
+                        <label>All Day Event?</label>
+                        {checkInput.checkbox}
+                    </div>
+                    <div className="flex-row">
+                        <button className="primary-button" onClick={() => {handleOnClick(localEvent)}}>Edit</button>
+                        <button className="secondary-button" onClick={() => {props.deleteEvent(localEvent.id)}}>Delete</button>
+                    </div>
                 </div>
             </div>
         )

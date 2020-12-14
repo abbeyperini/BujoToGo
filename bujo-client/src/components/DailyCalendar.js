@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import AddBullet from './AddBullet';
 import { generatePath } from 'react-router-dom';
 import { eventActions } from '../store/actions/eventActions';
 
@@ -14,7 +13,6 @@ const DailyCalendar = (props) => (
             events={props.events}
             eventClick={(eventClickInfo) => {props.history.push(generatePath("/events/edit-event/:id", {id: eventClickInfo.event._def.publicId}))}}
         />
-        <AddBullet />
     </div>
 )
 

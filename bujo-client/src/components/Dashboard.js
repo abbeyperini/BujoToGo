@@ -10,9 +10,9 @@ function Dashboard() {
         <div className="main-block">
             <h1>Index</h1>
             <nav>
-                <p><NavLink to="/monthly">{todayObj.month}</NavLink></p>
-                <p><NavLink to="/weekly">{todayObj.month} - Week {todayObj.weekNum}</NavLink></p>
-                <p><NavLink to="/daily">{todayObj.day}, {todayObj.month} {todayObj.date}</NavLink></p>
+                <NavLink to="/monthly"><p className="index-option">{todayObj.month}</p></NavLink>
+                <NavLink to="/weekly"><p className="index-option">{todayObj.month} - Week {todayObj.weekNum}</p></NavLink>
+                <NavLink to="/daily"><p className="index-option">{todayObj.day}, {todayObj.month} {todayObj.date}</p></NavLink>
             </nav>
         </div>
     )

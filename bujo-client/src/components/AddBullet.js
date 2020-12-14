@@ -37,10 +37,12 @@ function AddBullet(props) {
     }
 
     return (
-        <div>
+        <div className="add-bullet-container">
+            <h1>Add bullet</h1>
             {props.error ? <h2>{props.error}</h2> : null}
-            <IconSelector handleIconChange={handleIconChange}/>
             <div className="input-block">
+                <label>Icon</label>
+                <IconSelector handleIconChange={handleIconChange}/>
                 <label>Title</label>
                 <input type="text" name="title" onChange={handleOnChange}></input>
                 <label>Start Date</label>
@@ -51,9 +53,11 @@ function AddBullet(props) {
                 <input type="date" name="endDate" onChange={handleOnChange}></input>
                 <label>End Time</label>
                 <input type="time" name="endTime" onChange={handleOnChange}></input>
-                <label>All Day Event?</label>
-                <input type="checkbox" name="allDay" value="true" onChange={handleOnChange}></input>
-                <button onClick={() => handleOnClick(localEvent)}>Add</button>
+                <div className="checkbox-container">
+                    <label>All Day Event?</label>
+                    <input type="checkbox" name="allDay" value="true" onChange={handleOnChange}></input>
+                </div>
+                <button className="primary-button" onClick={() => handleOnClick(localEvent)}>Add</button>
             </div>
         </div>
     )

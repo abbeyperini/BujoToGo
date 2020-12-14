@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink, generatePath } from 'react-router-dom';
 import { eventActions } from '../store/actions/eventActions';
-import AddBullet from './AddBullet';
 import { formats } from '../utils/dateFormat';
 import { ReactComponent as Task } from '../images/basicIcons/bullet.svg';
 import { ReactComponent as Note } from '../images/basicIcons/dash.svg';
@@ -22,10 +21,9 @@ function Daily(props) {
     if (!props.dailyEvents || !props.dailyEvents[0]) {
         let todayObj = formats.todayDate();
         return (
-            <div className="main-block">
+            <div>
                 <h1>{todayObj.day}, {todayObj.month} {todayObj.date}</h1>
                 <h2>Create a bullet!</h2>
-                <AddBullet/>
             </div>
         )
     } else {
@@ -35,7 +33,7 @@ function Daily(props) {
                 case "task":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Task />
+                        <Task className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -43,7 +41,7 @@ function Daily(props) {
                 case "event":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Event />
+                        <Event className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -51,7 +49,7 @@ function Daily(props) {
                 case "completed":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Completed />
+                        <Completed className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -59,7 +57,7 @@ function Daily(props) {
                 case "migrateF":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <MigrateF />
+                        <MigrateF className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -67,7 +65,7 @@ function Daily(props) {
                 case "migrateB":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <MigrateB />
+                        <MigrateB className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -75,7 +73,7 @@ function Daily(props) {
                 case "note":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Note />
+                        <Note className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -88,12 +86,11 @@ function Daily(props) {
         let todayObj = formats.todayDate();
 
         return(
-            <div className="main-block">
+            <div>
                 <h1>{todayObj.day}, {todayObj.month} {todayObj.date}</h1>
                 <ul>
                     {bullets}
                 </ul>
-                <AddBullet/>
             </div>
         )
     }

@@ -22,10 +22,9 @@ function Weekly(props) {
     if (!props.weeklyEvents || !props.weeklyEvents[0]) {
         let todayObj = formats.todayDate();
         return (
-            <div className="main-block">
+            <div>
                 <h1>{todayObj.month} - Week {todayObj.weekNum}</h1>
                 <h2>Create a bullet!</h2>
-                <AddBullet/>
             </div>
         )
     } else {
@@ -35,7 +34,7 @@ function Weekly(props) {
                 case "task":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Task />
+                        <Task className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -43,7 +42,7 @@ function Weekly(props) {
                 case "event":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Event />
+                        <Event className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -51,7 +50,7 @@ function Weekly(props) {
                 case "completed":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Completed />
+                        <Completed className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -59,7 +58,7 @@ function Weekly(props) {
                 case "migrateF":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <MigrateF />
+                        <MigrateF className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -67,7 +66,7 @@ function Weekly(props) {
                 case "migrateB":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <MigrateB />
+                        <MigrateB className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -75,7 +74,7 @@ function Weekly(props) {
                 case "note":
                     return(
                         <li key={eventItem.id} className="event-bullet">
-                        <Note />
+                        <Note className="bullet-bullet"/>
                         <NavLink to={generatePath("/events/edit-event/:id", {id: eventItem.id})}><h3>{eventItem.title}</h3></NavLink>
                         <p>{start}</p>
                         </li>
@@ -86,12 +85,11 @@ function Weekly(props) {
         })
         let todayObj = formats.todayDate();
         return(
-            <div className="main-block">
+            <div>
                 <h1>{todayObj.month} - Week {todayObj.weekNum}</h1>
                 <ul>
                     {bullets}
                 </ul>
-                <AddBullet/>
             </div>
         )
     }

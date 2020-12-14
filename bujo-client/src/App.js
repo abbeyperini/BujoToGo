@@ -23,15 +23,21 @@ function App(props) {
   }, [])
 
   return (
-    <div className="main-block">
+    <div className="logreg-block">
+      <h1>Log in</h1>
       {props.error ? <h2>{props.error}</h2> : null}
       <div className="input-block">
         <label>Username:</label>
         <input onChange={handleOnChange} type="text" name="username"></input>
         <label>Password:</label>
         <input onChange={handleOnChange} type="text" name="password"></input>
-        <button onClick={handleOnClick}>Login</button>
-        <NavLink to="/register"><button>Register</button></NavLink>
+        <button className="primary-button" onClick={handleOnClick}>Login</button>
+        <div className="flex-row">
+          <hr className="line"></hr>
+          <p>or</p>
+          <hr className="line"></hr>
+        </div>
+        <NavLink to="/register"><button className="secondary-button">Register</button></NavLink>
       </div>
     </div>
   );

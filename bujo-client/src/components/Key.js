@@ -4,20 +4,22 @@ import { ReactComponent as Bullet } from '../images/basicIcons/bullet.svg';
 import { ReactComponent as Note } from '../images/basicIcons/dash.svg';
 import { ReactComponent as Event } from '../images/basicIcons/o.svg';
 import { ReactComponent as X } from '../images/basicIcons/x.svg';
-import { ReactComponent as MigrateForward } from '../images/basicIcons/arrowR.svg';
-import { ReactComponent as MigrateBackward } from '../images/basicIcons/arrowL.svg';
+import { ReactComponent as MigrateF } from '../images/basicIcons/arrowR.svg';
+import { ReactComponent as MigrateB } from '../images/basicIcons/arrowL.svg';
 
-function Key(props) {
+function Key() {
     return(
-        <ul>
-            <li><KeyIcon /> <h1>Key</h1></li>
-            <li><p>task</p> <Bullet /></li>
-            <li><p>event</p> <Event /></li>
-            <li><p>completed</p> <X /></li>
-            <li><p>migrate bullet forward in time</p> <MigrateForward /></li>
-            <li><p>migrate bullet backward in time</p> <MigrateBackward /></li>
-            <li><p>note</p> <Note /></li>
-        </ul>
+        <div className="main-block">
+            <div className="key-heading"><KeyIcon className="key-heading_bullet"/> <h1>Key</h1></div>
+            <ul className="key-container">
+                <li className="key-item"> <Bullet className="key-item_bullet"/> <p>task</p></li>
+                <li className="key-item"> <Event className="key-item_bullet"/> <p>event</p></li>
+                <li className="key-item"> <X className="key-item_bullet"/> <p>completed</p></li>
+                <li className="key-item"> <Note className="key-item_bullet"/> <p>note</p></li>
+                <li className="key-item"> <MigrateF className="key-item_bullet"/> <p>migrate forward in time</p></li>
+                <li className="key-item"> <MigrateB className="key-item_bullet"/> <p>migrate backward in time</p></li>
+            </ul>
+        </div>
     )
 }
 

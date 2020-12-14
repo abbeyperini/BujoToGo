@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import Header from './Header';
 
 function BaseLayout(props) {
@@ -9,7 +8,6 @@ function BaseLayout(props) {
                 <main>
                     {props.children}
                 </main>
-            <Footer/>
         </div>
     )
 }
