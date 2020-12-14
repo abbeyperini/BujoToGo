@@ -24,6 +24,7 @@
 - React
 - Redux
 - React Redux
+- Redux Persist
 - React Router DOM
 - Redux Thunk
 - Axios
