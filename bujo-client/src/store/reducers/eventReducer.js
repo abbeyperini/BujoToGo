@@ -36,14 +36,21 @@ const reducer = (state = initialState, action) => {
                 eventDeleted: false,
                 error: action.payload
             }
+        case eventConstants.SINGLE_EVENT_REQUEST:
+            return {
+                ...state,
+                singleLoading: true
+            }
         case eventConstants.SINGLE_EVENT_FETCHED:
             return {
                 ...state,
+                singleLoading: false,
                 singleEvent: action.payload
             }
         case eventConstants.SINGLE_EVENT_FETCH_FAIL:
             return {
                 ...state,
+                singleLoading: false,
                 singleEventFetched: false,
                 error: action.payload
             }

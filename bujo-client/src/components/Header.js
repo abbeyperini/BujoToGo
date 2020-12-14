@@ -5,14 +5,14 @@ import { connect} from 'react-redux';
 import { ReactComponent as Logo } from '../images/bujoLogo.svg';
 
 function Header(props) {
-    const [isAuth, setIsAuth] = useState(false)
+    const [isAuth, setIsAuth] = useState({});
 
     const handleOnClick = () => {
         props.logout()
     }
     
     useEffect(() => {
-        setIsAuth(localStorage.getItem('isAuthenticated'))
+        setIsAuth(props.isAuth)
     }, [])
 
     return(
@@ -22,12 +22,18 @@ function Header(props) {
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div>
             <nav>
-                { isAuth === "true" ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
-                { isAuth === "true" ? <p><NavLink to="/key">Key</NavLink></p> : null }
-                { isAuth === "true" ? <button onClick={handleOnClick}>Logout</button> : null }
+                { isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
+                { isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
+                { isAuth ? <button onClick={handleOnClick}>Logout</button> : null }
             </nav>
         </header>
     )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.userR.isAuthenticated
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -36,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

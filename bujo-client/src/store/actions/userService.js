@@ -27,5 +27,4 @@ function register(user) {
 
 function logout(user) {
     localStorage.removeItem('jsonwebtoken');
-    localStorage.removeItem('isAuthenticated');
 }

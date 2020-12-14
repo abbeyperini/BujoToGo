@@ -5,21 +5,32 @@ const initialState = { isAuthenticated: false };
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case userConstants.LOGIN_SUCCESS:
-            return state
+            return { 
+                ...state,
+                isAuthenticated: true
+            }
         case userConstants.LOGIN_FAILURE:
             return {
                 ...state,
+                isAuthenticated: false,
                 error: action.payload
             }
         case userConstants.REGISTER_SUCCESS:
-            return state
+            return { 
+                ...state,
+                isAuthenticated: true
+            }
         case userConstants.REGISTER_FAILURE:
             return {
                 ...state,
+                isAuthenticated: false,
                 error: action.payload
             }
         case userConstants.LOGOUT:
-            return state
+            return {
+                ...state,
+                isAuthenticated: false
+            }
         default:
             return state
     }

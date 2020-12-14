@@ -76,6 +76,7 @@ function deleteEvent(id) {
 
 function fetchSingleEvent(id) {
     return dispatch => {
+        dispatch(request())
         eventService.fetchSingleEvent(id)
         .then(
             result => {
@@ -87,6 +88,7 @@ function fetchSingleEvent(id) {
         )
     }
 
+    function request() { return { type: eventConstants.SINGLE_EVENT_REQUEST } }
     function success(result) { return { type: eventConstants.SINGLE_EVENT_FETCHED, payload: result } }
     function failure(error) { return { type: eventConstants.SINGLE_EVENT_FETCH_FAIL, payload: error } }
 }
