@@ -8,7 +8,7 @@ export const userService = {
 
 function login(user) {
     
-    return axios.post('http://localhost:8080/users/authenticate', {
+    return axios.post('https://bujo-to-go.herokuapp.com/users/authenticate', {
         username: user.username,
         password: user.password
     })
@@ -17,7 +17,7 @@ function login(user) {
 
 function register(user) {
 
-    return axios.post('http://localhost:8080/users/register', {
+    return axios.post('https://bujo-to-go.herokuapp.com/users/register', {
         firstName: user.firstName,
         lastName: user.lastName,
         username: user.username,

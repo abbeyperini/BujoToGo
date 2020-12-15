@@ -13,10 +13,10 @@ function Header(props) {
 
     return(
         <header>
-            <div className="flex-row">
+            <NavLink to='/dashboard'><div className="flex-row">
                 <h1>BujoToGo</h1>
                 <Logo className="header-logo" alt="BujoToGo logo"/>
-            </div>
+            </div></NavLink>
             <nav className="flex-row">
                 { props.isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
                 { props.isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }

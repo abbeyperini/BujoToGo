@@ -18,6 +18,15 @@ function App(props) {
     props.login(user)
   }
 
+  const handleGuestLogin = () => {
+    let guest = {
+      username: "guest",
+      password: "password"
+    }
+
+    props.login(guest)
+  }
+
   useEffect(() => {
     userActions.logout()
   }, [])
@@ -38,6 +47,8 @@ function App(props) {
           <hr className="line"></hr>
         </div>
         <NavLink to="/register"><button className="secondary-button">Register</button></NavLink>
+        <button onClick={handleGuestLogin} className="tertiary-button">Guest Login</button>
+        
       </div>
     </div>
   );

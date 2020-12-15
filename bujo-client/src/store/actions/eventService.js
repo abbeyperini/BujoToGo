@@ -13,7 +13,7 @@ export const eventService = {
 
 function addEvent(eventObj) {
 
-    return axios.post('http://localhost:8080/events/new-event', {
+    return axios.post('https://bujo-to-go.herokuapp.com/events/new-event', {
         icon: eventObj.icon,
         title: eventObj.title,
         start: eventObj.start, 
@@ -24,19 +24,19 @@ function addEvent(eventObj) {
 
 function fetchEvents() {
 
-    return axios.get('http://localhost:8080/events/fetch-all')
+    return axios.get('https://bujo-to-go.herokuapp.com/events/fetch-all')
 }
 
 function deleteEvent(id) {
-    return axios.delete(`http://localhost:8080/events/delete-event/${id}`)
+    return axios.delete(`https://bujo-to-go.herokuapp.com/events/delete-event/${id}`)
 }
 
 function fetchSingleEvent(id) {
-    return axios.get(`http://localhost:8080/events/fetch-single/${id}`)
+    return axios.get(`https://bujo-to-go.herokuapp.com/events/fetch-single/${id}`)
 }
 
 function editEvent(localEvent) {
-    return axios.post('http://localhost:8080/events/edit-event', {
+    return axios.post('https://bujo-to-go.herokuapp.com/events/edit-event', {
         id: localEvent.id,
         icon: localEvent.icon,
         title: localEvent.title,
@@ -47,13 +47,13 @@ function editEvent(localEvent) {
 }
 
 function fetchMonthlyEvents() {
-    return axios.get('http://localhost:8080/events/monthly-events')
+    return axios.get('https://bujo-to-go.herokuapp.com/events/monthly-events')
 }
 
 function fetchWeeklyEvents() {
-    return axios.get('http://localhost:8080/events/weekly-events')
+    return axios.get('https://bujo-to-go.herokuapp.com/events/weekly-events')
 }
 
 function fetchDailyEvents() {
-    return axios.get('http://localhost:8080/events/daily-events')
+    return axios.get('https://bujo-to-go.herokuapp.com/events/daily-events')
 }

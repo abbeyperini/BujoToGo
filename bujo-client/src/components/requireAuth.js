@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export default function(ComposedComponent) {
     
@@ -6,7 +7,7 @@ export default function(ComposedComponent) {
         constructor(props) {
             super(props)
 
-            if (!localStorage.getItem('isAuthenticated')) {
+            if (!props.isAuth) {
                 this.props.history.push('/index')
             }
         }
@@ -16,5 +17,11 @@ export default function(ComposedComponent) {
         }
     }
 
-    return Authenticate
+    const mapStateToProps = (state) => {
+        return {
+            isAuth: state.userR.isAuthenticated
+        }
+    }
+
+    return connect(mapStateToProps)(Authenticate)
 }
