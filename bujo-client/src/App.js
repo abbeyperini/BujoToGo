@@ -35,20 +35,21 @@ function App(props) {
     <div className="logreg-block">
       <h1>Log in</h1>
       {props.error ? <h2>{props.error}</h2> : null}
-      <div className="input-block">
-        <label>Username:</label>
+      <div className="logreg_input-block">
+        <label>Username</label>
         <input onChange={handleOnChange} type="text" name="username"></input>
-        <label>Password:</label>
+        <label>Password</label>
         <input onChange={handleOnChange} type="text" name="password"></input>
-        <button className="primary-button" onClick={handleOnClick}>Login</button>
-        <div className="flex-row">
-          <hr className="line"></hr>
-          <p>or</p>
-          <hr className="line"></hr>
+        <div className="login-buttons">
+          <button className="primary-button" onClick={handleOnClick}>Login</button>
+          <div className="flex-row">
+            <hr className="line"></hr>
+            <p>or</p>
+            <hr className="line"></hr>
+          </div>
+          <NavLink to="/register"><button className="secondary-button">Register</button></NavLink>
+          <button onClick={handleGuestLogin} className="tertiary-button">Guest Login</button>
         </div>
-        <NavLink to="/register"><button className="secondary-button">Register</button></NavLink>
-        <button onClick={handleGuestLogin} className="tertiary-button">Guest Login</button>
-        
       </div>
     </div>
   );

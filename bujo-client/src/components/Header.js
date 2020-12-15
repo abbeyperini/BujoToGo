@@ -17,7 +17,7 @@ function Header(props) {
                 <h1>BujoToGo</h1>
                 <Logo className="header-logo" alt="BujoToGo logo"/>
             </div></NavLink>
-            <nav className="flex-row">
+            <nav className="header-nav">
                 { props.isAuth ? <p><NavLink to='/dashboard'>Index</NavLink></p> : null }
                 { props.isAuth ? <p><NavLink to="/key">Key</NavLink></p> : null }
                 <p><NavLink to="/about">About</NavLink></p>

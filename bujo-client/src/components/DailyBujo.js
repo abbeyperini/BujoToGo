@@ -23,7 +23,7 @@ function Daily(props) {
         return (
             <div>
                 <h1>{todayObj.day}, {todayObj.month} {todayObj.date}</h1>
-                <h2>Create a bullet!</h2>
+                <h2 className="create-message">Create a bullet!</h2>
             </div>
         )
     } else {

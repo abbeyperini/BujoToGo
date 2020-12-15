@@ -24,22 +24,24 @@ function RegisterPage(props) {
         <div className="logreg-block">
             <h1>Register</h1>
             {props.error ? <h2>{props.error}</h2> : null}
-            <div className="input-block">
-                <label>Username:</label>
+            <div className="logreg_input-block">
+                <label>Username</label>
                 <input onChange={handleOnChange} type="text" name="username"></input>
-                <label>Password:</label>
+                <label>Password</label>
                 <input onChange={handleOnChange} type="text" name="password"></input>
-                <label>First Name:</label>
+                <label>First Name</label>
                 <input onChange={handleOnChange} type="text" name="firstName"></input>
-                <label>Last Name:</label>
+                <label>Last Name</label>
                 <input onChange={handleOnChange} type="text" name="lastName"></input>
-                <button onClick={handleOnClick} className="primary-button">Register</button>
-                <div className="flex-row">
-                    <hr className="line"></hr>
-                    <p>or</p>
-                    <hr className="line"></hr>
+                <div className="reg-buttons">
+                    <button onClick={handleOnClick} className="primary-button">Register</button>
+                    <div className="flex-row">
+                        <hr className="line"></hr>
+                        <p>or</p>
+                        <hr className="line"></hr>
+                    </div>
+                    <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
                 </div>
-                <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
             </div>
         </div>
       );

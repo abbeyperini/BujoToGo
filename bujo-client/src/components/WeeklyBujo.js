@@ -24,7 +24,7 @@ function Weekly(props) {
         return (
             <div>
                 <h1>{todayObj.month} - Week {todayObj.weekNum}</h1>
-                <h2>Create a bullet!</h2>
+                <h2 className="create-message">Create a bullet!</h2>
             </div>
         )
     } else {

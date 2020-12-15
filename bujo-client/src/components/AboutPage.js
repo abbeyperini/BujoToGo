@@ -4,8 +4,8 @@ import abbey from "../images/abbey.jpg";
 // add links to pages in app
 function AboutPage() {
     return (
-        <div className="main-block">
-            <h1>About Bullet Journal</h1>
+        <div className="about-block">
+            <h1 id="about-heading">About Bullet Journal</h1>
             <div className="about-container">
                 <p>At it's most basic, <a href="https://bulletjournal.com/pages/learn" target="_blank" rel="noreferrer">Ryder Carroll's Bullet Journal system</a> is 
                 about highly customizeable rapid logging, a method of capturing information as bulleted lists. Traditionally, bullets are tasks, events, 
