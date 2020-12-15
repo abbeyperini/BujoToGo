@@ -1,5 +1,6 @@
 import { eventConstants } from './eventActionTypes';
 import { eventService } from './eventService';
+import history from '../../utils/history';
 
 export const eventActions = {
     addEvent,
@@ -61,7 +62,7 @@ function deleteEvent(id) {
         eventService.deleteEvent(id)
         .then(
             result => {
-                console.log(result)
+                history.push('/dashboard');
                 dispatch(success(result.data));
             },
             error => {
@@ -98,10 +99,12 @@ function editEvent(localEvent) {
         eventService.editEvent(localEvent)
         .then(
            result => {
-               dispatch(success(result.data));
+                history.push('/dashboard');
+                dispatch(success(result.data));
            },
            error => {
-               dispatch(failure(error))
+                history.push('/dashboard');
+                dispatch(failure(error))
            }
         )
     }

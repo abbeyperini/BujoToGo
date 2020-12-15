@@ -43,5 +43,8 @@ const getWeekOfMonth = (date) => {
 }
 
 function formatTime(isoString) {
-    return new Date(isoString).toLocaleTimeString('en', { timeStyle: 'short' } );
+    let date = new Date(isoString)
+    let corrected = date.valueOf() + 18000000
+    let final = new Date(corrected)
+    return final.toLocaleTimeString('en', { timeStyle: 'short' } );
 }

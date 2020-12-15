@@ -11,12 +11,11 @@ import { ReactComponent as MigrateF } from '../images/basicIcons/arrowR.svg';
 import { ReactComponent as MigrateB } from '../images/basicIcons/arrowL.svg';
 
 function Monthly(props) {
-    let deleted = props.deleted;
     let eventAdded = props.eventAdded;
 
     useEffect(() => {
         props.fetchMonthlyEvents()
-    }, [deleted, eventAdded])
+    }, [eventAdded])
 
     if (!props.monthlyEvents || !props.monthlyEvents[0]) {
         let todayObj = formats.todayDate();
@@ -98,7 +97,6 @@ function Monthly(props) {
 const mapStateToProps = (state) => {
     return {
         monthlyEvents: state.eventR.monthlyEvents,
-        deleted: state.eventR.eventDeleted,
         eventAdded: state.eventR.eventAdded
     }
 }
@@ -106,7 +104,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchMonthlyEvents: () => dispatch(eventActions.fetchMonthlyEvents()),
-        deleteEvent: (id) => dispatch(eventActions.deleteEvent(id))
     }
 }
 

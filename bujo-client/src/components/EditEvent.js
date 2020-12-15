@@ -183,7 +183,6 @@ function EditEvent(props) {
         return(
             <div className="main-block">
                 <h1>Edit</h1>
-                {edited && <h1>Event edited!</h1>}
                 <div className="input-block">
                     <label>Icon</label>
                     {iconPicker.icon}
@@ -203,7 +202,7 @@ function EditEvent(props) {
                     </div>
                     <div className="flex-row">
                         <button className="primary-button" onClick={() => {handleOnClick(localEvent)}}>Edit</button>
-                        <button className="secondary-button" onClick={() => {props.deleteEvent(localEvent.id)}}>Delete</button>
+                        <button className="secondary-button" onClick={() => {props.deleteEvent(props.singleEvent.id)}}>Delete</button>
                     </div>
                 </div>
             </div>
@@ -222,7 +221,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchSingleEvent: (id) => dispatch(eventActions.fetchSingleEvent(id)),
-        editEvent: (localEvent) => dispatch(eventActions.editEvent(localEvent))
+        editEvent: (localEvent) => dispatch(eventActions.editEvent(localEvent)),
+        deleteEvent: (id) => dispatch(eventActions.deleteEvent(id)) 
     }
 }
 

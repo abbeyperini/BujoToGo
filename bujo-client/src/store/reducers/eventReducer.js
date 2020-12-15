@@ -85,6 +85,17 @@ const reducer = (state = initialState, action) => {
                 state,
                 error: action.payload
             }
+        case eventConstants.EVENT_EDITED:
+            return {
+                state,
+                eventEdited: true
+            }
+        case eventConstants.EVENT_EDIT_FAIL:
+            return {
+                state,
+                eventEdited: false,
+                error: action.payload
+            }
         case userConstants.LOGOUT:
             return {
                 initialState

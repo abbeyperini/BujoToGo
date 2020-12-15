@@ -12,12 +12,11 @@ import { ReactComponent as MigrateF } from '../images/basicIcons/arrowR.svg';
 import { ReactComponent as MigrateB } from '../images/basicIcons/arrowL.svg';
 
 function Weekly(props) {
-    let deleted = props.deleted;
     let eventAdded = props.eventAdded;
 
     useEffect(() => {
         props.fetchWeeklyEvents()
-    }, [deleted, eventAdded])
+    }, [eventAdded])
 
     if (!props.weeklyEvents || !props.weeklyEvents[0]) {
         let todayObj = formats.todayDate();
@@ -106,8 +105,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchWeeklyEvents: () => dispatch(eventActions.fetchWeeklyEvents()),
-        deleteEvent: (id) => dispatch(eventActions.deleteEvent(id))
+        fetchWeeklyEvents: () => dispatch(eventActions.fetchWeeklyEvents())
     }
 }
 

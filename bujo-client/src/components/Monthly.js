@@ -1,4 +1,3 @@
-import { getUnequalProps } from '@fullcalendar/react';
 import React, { useState } from 'react';
 import AddBullet from './AddBullet';
 import MonthlyBujo from './MonthlyBujo';

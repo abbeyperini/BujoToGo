@@ -11,12 +11,11 @@ import { ReactComponent as MigrateF } from '../images/basicIcons/arrowR.svg';
 import { ReactComponent as MigrateB } from '../images/basicIcons/arrowL.svg';
 
 function Daily(props) {
-    let deleted = props.deleted;
     let eventAdded = props.eventAdded;
 
     useEffect(() => {
         props.fetchDailyEvents()
-    }, [deleted, eventAdded])
+    }, [eventAdded])
 
     if (!props.dailyEvents || !props.dailyEvents[0]) {
         let todayObj = formats.todayDate();
@@ -100,7 +99,6 @@ function Daily(props) {
 const mapStateToProps = (state) => {
     return {
         dailyEvents: state.eventR.dailyEvents,
-        deleted: state.eventR.eventDeleted,
         eventAdded: state.eventR.eventAdded
     }
 }
