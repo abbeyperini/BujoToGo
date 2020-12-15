@@ -1,4 +1,5 @@
 import { eventConstants } from '../actions/eventActionTypes';
+import { userConstants } from '../actions/userActionTypes';
 
 const initialState = {events: []}
 
@@ -83,6 +84,10 @@ const reducer = (state = initialState, action) => {
             return {
                 state,
                 error: action.payload
+            }
+        case userConstants.LOGOUT:
+            return {
+                initialState
             }
         default:
             return state
