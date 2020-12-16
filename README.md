@@ -13,7 +13,7 @@
 
 ## About the Project
 
-- BujoToGo is a to do list app based on Ryder Carroll's Bullet Journal system. At it's most basic, Bullet Journal is about highly customizable rapid logging, a method of capturing information as bulleted lists. In addition to normal to do list functions, this app allows users to view their bullets in views analagous to popular handwritten traditional and calendar Bullet Journal spreads.
+- BujoToGo is a to do list app based on Ryder Carroll's Bullet Journal system. At its most basic, Bullet Journal is about highly customizable rapid logging, a method of capturing information as bulleted lists. In addition to normal to do list functions, this app allows users to view their bullets in views analogous to popular handwritten traditional and calendar Bullet Journal spreads.
 
 ## Usage
 - Visit [BujoToGo](http://bujo-to-go.surge.sh/#/index) and click guest login.
