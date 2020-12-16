@@ -16,7 +16,7 @@
 - BujoToGo is a to do list app based on Ryder Carroll's Bullet Journal system. At it's most basic, Bullet Journal is about highly customizeable rapid logging, a method of capturing information as bulleted lists. In addition to normal to do list functions, this app allows users to view their bullets in views analagous to popular handwritten traditional and calendar Bullet Journal spreads.
 
 ## Usage
-- Visit (BujoToGo)[http://bujo-to-go.surge.sh/#/index] and login as guest.
+- Visit [BujoToGo](http://bujo-to-go.surge.sh/#/index) and login as guest.
 
 - Add, edit, and delete task, event, and note bullets (short descriptions) and migrate them (indicate they've been moved forward to complete later or backward because they were completed early). View your bullets in monthly, weekly, and daily spreads - traditional or calendar style. Bullets are stored with date time strings and returned in chronological order based on the time range of the view.
 
