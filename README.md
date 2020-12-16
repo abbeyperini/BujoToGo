@@ -56,6 +56,8 @@ npm start
 
 ## Built With
 
+- Javascript
+- CSS
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [React Redux](https://react-redux.js.org/)
