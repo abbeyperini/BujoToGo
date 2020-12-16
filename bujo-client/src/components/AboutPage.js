@@ -8,7 +8,7 @@ function AboutPage() {
             <h1 id="about-heading">About Bullet Journal</h1>
             <div className="about-container">
                 <p>At it's most basic, <a href="https://bulletjournal.com/pages/learn" target="_blank" rel="noreferrer">Ryder Carroll's Bullet Journal system</a> is 
-                about highly customizeable rapid logging, a method of capturing information as bulleted lists. Traditionally, bullets are tasks, events, 
+                about highly customizable rapid logging, a method of capturing information as bulleted lists. Traditionally, bullets are tasks, events, 
                 and notes, each with their own signifier (bullet symbol) as defined in your key. Your bullets are categorized into collections, which include 
                 logs (monthly, weekly, daily, and future) and any other logs and collections you need. </p>
                 <br></br>
