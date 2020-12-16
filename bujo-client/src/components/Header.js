@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { userActions } from '../store/actions/userActions';
 import { connect} from 'react-redux';
-import { ReactComponent as Logo } from '../images/bujoLogo.svg';
+import { ReactComponent as Logo } from '../images/bujotogologo.svg';
 
 function Header(props) {
 
