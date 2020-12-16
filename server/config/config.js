@@ -21,6 +21,6 @@ module.exports = {
     "password": DATABASE_PASS,
     "database": "znhjrptk",
     "host": "suleiman.db.elephantsql.com",
-    "dialect": "mysql"
+    "dialect": "postgres"
   }
 }
