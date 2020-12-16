@@ -201,8 +201,10 @@ function EditEvent(props) {
                         {checkInput.checkbox}
                     </div>
                     <div className="flex-row">
-                        <button className="primary-button" onClick={() => {handleOnClick(localEvent)}}>Edit</button>
-                        <button className="secondary-button" onClick={() => {props.deleteEvent(props.singleEvent.id)}}>Delete</button>
+                        <div className="edit-primary-button-container">
+                            <button className="primary-button" onClick={() => {handleOnClick(localEvent)}}>Edit</button>
+                        </div>
+                        <button id="edit-block_delete" className="secondary-button" onClick={() => {props.deleteEvent(props.singleEvent.id)}}>Delete</button>
                     </div>
                 </div>
             </div>

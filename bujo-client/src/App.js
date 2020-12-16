@@ -41,7 +41,9 @@ function App(props) {
         <label>Password</label>
         <input onChange={handleOnChange} type="text" name="password"></input>
         <div className="login-buttons">
-          <button className="primary-button" onClick={handleOnClick}>Login</button>
+          <div className="logreg-primary-button-container">
+            <button className="primary-button" onClick={handleOnClick}>Login</button>
+          </div>
           <div className="flex-row">
             <hr className="line"></hr>
             <p>or</p>

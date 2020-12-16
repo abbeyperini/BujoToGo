@@ -34,7 +34,9 @@ function RegisterPage(props) {
                 <label>Last Name</label>
                 <input onChange={handleOnChange} type="text" name="lastName"></input>
                 <div className="reg-buttons">
-                    <button onClick={handleOnClick} className="primary-button">Register</button>
+                    <div className="logreg-primary-button-container">
+                        <button onClick={handleOnClick} className="reg-primary-button">Register</button>
+                    </div>
                     <div className="flex-row">
                         <hr className="line"></hr>
                         <p>or</p>

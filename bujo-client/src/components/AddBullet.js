@@ -57,7 +57,9 @@ function AddBullet(props) {
                     <label>All Day Event?</label>
                     <input type="checkbox" name="allDay" value="true" onChange={handleOnChange}></input>
                 </div>
-                <button className="primary-button" onClick={() => handleOnClick(localEvent)}>Add</button>
+                <div className="primary-button-container">
+                    <button className="primary-button" onClick={() => handleOnClick(localEvent)}>Add</button>
+                </div>
             </div>
         </div>
     )
