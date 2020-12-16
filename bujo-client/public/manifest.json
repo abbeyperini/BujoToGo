@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BujoToGo",
+  "name": "BujoToGo - a bullet journal app",
   "icons": [
     {
       "src": "favicon.ico",
