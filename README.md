@@ -16,7 +16,7 @@
 - BujoToGo is a to do list app based on Ryder Carroll's Bullet Journal system. At it's most basic, Bullet Journal is about highly customizeable rapid logging, a method of capturing information as bulleted lists. In addition to normal to do list functions, this app allows users to view their bullets in views analagous to popular handwritten traditional and calendar Bullet Journal spreads.
 
 ## Usage
-- Visit [BujoToGo](http://bujo-to-go.surge.sh/#/index) and login as guest.
+- Visit [BujoToGo](http://bujo-to-go.surge.sh/#/index) and click guest login.
 
 - Add, edit, and delete task, event, and note bullets (short descriptions) and migrate them (indicate they've been moved forward to complete later or backward because they were completed early). View your bullets in monthly, weekly, and daily spreads - traditional or calendar style. Bullets are stored with date time strings and returned in chronological order based on the time range of the view.
 
@@ -56,20 +56,22 @@ npm start
 
 ## Built With
 
-- React
-- Redux
-- React Redux
-- Redux Persist
-- React Router DOM
-- Redux Thunk
-- Axios
-- History
-- Node.js
-- Express
-- Sequelize
-- PostgreSQL
-- Full Calendar
-- JSON Web Token
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [React Redux](https://react-redux.js.org/)
+- [Redux Persist](https://github.com/rt2zz/redux-persist)
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Axios](https://github.com/axios/axios)
+- [History](https://www.npmjs.com/package/history)
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Sequelize](https://sequelize.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Full Calendar](https://fullcalendar.io/)
+- [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+
+Deployed with [ElephantSQL](https://www.elephantsql.com/), [Heroku](https://www.heroku.com/home), and [Surge](https://surge.sh/)
 
 ## Authors
 
