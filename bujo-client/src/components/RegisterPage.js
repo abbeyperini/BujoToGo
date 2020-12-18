@@ -28,7 +28,7 @@ function RegisterPage(props) {
                 <label>Username</label>
                 <input onChange={handleOnChange} type="text" name="username"></input>
                 <label>Password</label>
-                <input onChange={handleOnChange} type="text" name="password"></input>
+                <input onChange={handleOnChange} type="password" name="password"></input>
                 <label>First Name</label>
                 <input onChange={handleOnChange} type="text" name="firstName"></input>
                 <label>Last Name</label>
