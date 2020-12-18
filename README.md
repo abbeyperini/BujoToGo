@@ -10,6 +10,7 @@
   - [Getting Started](#getting-started)
   - [Built With](#built-with)
   - [Authors](#authors)
+  - [Acknowledgements](#acknowledgements)
 
 ## About the Project
 
@@ -78,3 +79,7 @@ Deployed with [ElephantSQL](https://www.elephantsql.com/), [Heroku](https://www.
 ## Authors
 
 - **Abbey Perini** - [abbeyperini](https://github.com/abbeyperini)
+
+## Acknowledgements
+
+- [hola-svg](https://holasvg.com/icons/)
