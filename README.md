@@ -73,6 +73,7 @@ npm start
 - [PostgreSQL](https://www.postgresql.org/)
 - [Full Calendar](https://fullcalendar.io/)
 - [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 Deployed with [ElephantSQL](https://www.elephantsql.com/), [Heroku](https://www.heroku.com/home), and [Surge](https://surge.sh/)
 
