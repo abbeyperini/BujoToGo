@@ -44,7 +44,7 @@ npm init
 
 1. Clone to local machine
 ```sh
-git clone https://github.com/mattquint111/Super-React-Boy
+git clone https://github.com/abbeyperini/BujoToGo.git
 ```
 2. Install NPM packages
 ```sh
