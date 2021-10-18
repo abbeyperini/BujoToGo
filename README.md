@@ -9,8 +9,8 @@
   - [Videos and Screenshots](#videos-and-screenshots)
   - [Getting Started](#getting-started)
   - [Built With](#built-with)
-  - [Authors](#authors)
   - [Acknowledgements](#acknowledgements)
+  - [License](#license)
 
 ## About the Project
 
@@ -76,10 +76,6 @@ npm start
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 Deployed with [ElephantSQL](https://www.elephantsql.com/), [Heroku](https://www.heroku.com/home), and [Surge](https://surge.sh/)
-
-## Authors
-
-- **Abbey Perini** - [abbeyperini](https://github.com/abbeyperini)
 
 ## Acknowledgements
 
